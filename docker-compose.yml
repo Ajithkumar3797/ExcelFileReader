@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  chromadb:
+    image: chromadb/chroma:latest
+    container_name: chromadb
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma-data:/chroma/chroma
+
+  kalsec-rag:
+    build: .
+    container_name: kalsec-rag
+    ports:
+      - "8080:8080"
+    environment:
+      - OPENAI_API_KEY=${OPEN-API-KEY}
+      - SPRING_PROFILES_ACTIVE=docker
+    depends_on:
+      - chromadb
+
+volumes:
+  chroma-data:
