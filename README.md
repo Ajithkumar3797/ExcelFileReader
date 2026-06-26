@@ -1,6 +1,6 @@
-# Kalsec Contract Q&A — Spring Boot RAG API
+# Customer Contract Q&A — Spring Boot RAG API
 
-A production-ready **Spring Boot 3** application that ingests the Kalsec Contract
+A production-ready **Spring Boot 3** application that ingests the Customer Contract 
 Summary Excel file into **ChromaDB**, then answers natural-language questions about
 the contract data using **Anthropic Claude** (RAG pattern).
 
@@ -21,7 +21,7 @@ Excel (.xlsx)
                        │  List<ExcelChunk>
                        ▼
 ┌─────────────────────────────────────────────────────┐
-│  AnthropicService  — embeddings                     │
+│  OpenAI  — embeddings                     │
 │    → Voyage-3 via POST /v1/embeddings               │
 │    → batches of 96, with rate-limit delay           │
 └──────────────────────┬──────────────────────────────┘
